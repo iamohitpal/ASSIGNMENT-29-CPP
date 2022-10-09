@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+class taketwono
+{
+protected:
+    int a,b;
+public:
+    void settwono(int x=0,int y=0)
+    {
+        a=x;
+        b=y;
+    }
+};
+class sum : public taketwono
+{
+public:
+   void printsum()
+    {
+        cout<<"sum is : "<<a+b<<endl;
+    }
+};
+int main()
+{
+    sum s1;
+    s1.settwono(3,4);
+    s1.printsum();
+return 0;
+}

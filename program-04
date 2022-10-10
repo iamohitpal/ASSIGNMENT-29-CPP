@@ -1,0 +1,67 @@
+#include<iostream>
+#include<stdio.h>
+#include<string.h>
+using namespace std;
+class Person
+{
+protected:
+    string name,address,ph_no;
+};
+class Employee : public Person
+{
+public:
+    int eno;
+    string ename;
+};
+class Manager : public Employee
+{
+public:
+    string designation,department;
+    double salary;
+public:
+    void enterdetails()
+    {
+        cout<<"\nEnter details of Manager "<<endl;
+        cout<<"------------------------";
+        cout<<"\nEnter employee No.  : ";
+        cin>>eno;
+        cout<<"\nEnter employee Name  : ";
+        fflush(stdin);
+        getline(cin,ename);
+        cout<<"\nEnter Address  : ";
+        fflush(stdin);
+        getline(cin,address);
+        cout<<"\nEnter Phone No. : ";
+        fflush(stdin);
+        getline(cin,ph_no);
+        cout<<"\nEnter Designation : ";
+        fflush(stdin);
+        getline(cin,designation);
+        cout<<"\nEnter Department : ";
+        fflush(stdin);
+        getline(cin,department);
+        cout<<"\nEnter Basic Salary : ";
+        cin>>salary;
+    }
+};
+int main()
+{
+    int i=1,j=1,n;
+    Manager m[100];
+    cout<<"How many Manager details you want to enter ! ";
+    cin>>n;
+    while(i<=n)
+    {
+        m[i].enterdetails();
+        i++;
+    }
+    for(i=1;i<=n;i++)
+    {
+        if(m[j].salary<m[i].salary)
+        m[j].salary=m[i].salary;
+        j=i;
+    }
+    cout<<"\nManager with Highest salary is : "<<m[j].salary;
+    cout<<"\nAnd , Manager Name is :  "<<m[j].ename<<"\n\n";
+return 0;
+}

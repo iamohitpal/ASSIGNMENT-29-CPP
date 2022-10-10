@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+class marks
+{
+protected:
+    int phy,che,math;
+public:
+    void entermarks(int a,int b,int c)
+    {
+        phy=a;
+        che=b;
+        math=c;
+    }
+};
+class totalmarks : public marks
+{
+protected:
+    float sum;
+public:
+    int findtotal()
+    {
+        int s;
+        s=phy+che+math;
+        sum=s;
+        return s;
+    }
+};
+class percentage : public totalmarks
+{
+private:
+    float percent;
+public:
+    void findpercentage()
+    {
+        cout<<"percentage = "<<sum/3<<endl;
+    }
+};
+int main()
+{
+    percentage p1;
+    p1.entermarks(87,92,96);
+    p1.findtotal();
+    p1.findpercentage();
+return 0;
+}

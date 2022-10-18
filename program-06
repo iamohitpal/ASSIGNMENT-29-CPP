@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+class Derived;
+class Base
+{
+protected:
+    int a;
+public:
+    Base()
+    {
+        a=10;
+    }
+    void show()
+    {
+        cout<<"\n Value of first Number is : "<<a;
+    }
+    friend void swap(Base *p, Derived *q);
+};
+class Derived
+{
+protected:
+    int b;
+public:
+    Derived()
+    {
+        b=20;
+    }
+    void show()
+    {
+        cout<<"\n Value of second Number is : "<<b;
+    }
+        friend void swap(Base *p, Derived *q);
+};
+void swap(Base *p, Derived *q)
+{
+        int c;
+        c=p->a;
+        p->a=q->b;
+        q->b=c;
+}
+int main()
+{
+        Base B;
+        Derived D;
+        swap(&B, &D);
+        B.show();
+        D.show();
+return 0;
+}
